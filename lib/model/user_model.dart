@@ -3,14 +3,14 @@
 class User {
   String name;
   String email;
-  String userName;
+  String username;
   Address address;
 
 //Named Constructer with translating data from json structures
   User.fromJson(Map<String, dynamic> json) {
     name = json['name'];
     email = json['email'];
-    userName = json['userName'];
+    username = json['username'];
     address = Address.fromJson(json['address']);
   }
 }
