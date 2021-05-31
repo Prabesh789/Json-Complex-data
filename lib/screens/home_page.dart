@@ -9,14 +9,14 @@ class HomePage extends StatefulWidget {
   _HomePageState createState() => _HomePageState();
 }
 
-//Boilerplate
-String url;
-List data = [];
-var response;
-List<User> userList;
-bool isLoading = true;
-
 class _HomePageState extends State<HomePage> {
+  //Boilerplate
+  String url;
+  List data = [];
+  var response;
+  List<User> userList;
+  bool isLoading = true;
+
   Future<List<User>> getUsers() async {
     url = "http://jsonplaceholder.typicode.com/users";
     response = await http.get(url);
