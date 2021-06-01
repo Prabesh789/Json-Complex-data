@@ -16,14 +16,18 @@ class _DistrictListState extends State<DistrictList> {
   bool isLoading = true;
 
   Future<List<District>> getUsers() async {
-    url = "https://data.askbhunte.com/api/v1/districts";
-    response = await http.get(url);
-    data = json.decode(response.body);
-    setState(() {
-      districtList = data.map((json) => District.fromJson(json)).toList();
-      isLoading = false;
-    });
-    return districtList;
+    try {
+      url = "https://data.askbhunte.com/api/v1/districts";
+      response = await http.get(url);
+      data = json.decode(response.body);
+      setState(() {
+        districtList = data.map((json) => District.fromJson(json)).toList();
+        isLoading = false;
+      });
+      return districtList;
+    } catch (e) {
+      return e;
+    }
   }
 
   @override
